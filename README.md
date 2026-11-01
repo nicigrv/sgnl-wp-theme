@@ -9,17 +9,10 @@ Das Theme fragt das neueste [Release](../../releases) ab. Neue Versionen erschei
 sonst prüft WordPress automatisch alle paar Stunden).
 
 ## Neue Version veröffentlichen
-1. Änderungen committen.
-2. Versionsnummer erhöhen in `style.css` (`Version:`) **und** `functions.php` (`SGNL_THEME_VERSION`).
-3. Tag mit Beschreibung der Änderungen anlegen und pushen:
-   ```bash
-   git tag -a v2.0.3 -m "Was sich geändert hat"
-   git push origin main --tags
-   ```
-4. Die GitHub-Action baut `sgnl-neptun.zip` und legt das Release an. Passt die Version im Code nicht
-   zum Tag, bricht sie mit Fehler ab.
-
-Die Beschreibung des Tags erscheint in WordPress als Änderungsliste.
+1. Änderungen machen und die Versionsnummer erhöhen in `style.css` (`Version:`) **und** `functions.php` (`SGNL_THEME_VERSION`), z. B. auf `2.0.3`.
+2. Commit auf `main` pushen. Die Commit-Nachrichten seit der letzten Version erscheinen in WordPress als Änderungsliste.
+3. Die GitHub-Action merkt die neue Versionsnummer, baut die ZIP und legt das Release `v2.0.3` an.
+   Ohne neue Versionsnummer wird kein Release erstellt.
 
 ## Aufbau
 | Pfad | Inhalt |
