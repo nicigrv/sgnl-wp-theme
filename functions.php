@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'SGNL_THEME_VERSION', '2.0.2' );
+define( 'SGNL_THEME_VERSION', '2.0.3' );
 define( 'SGNL_THEME_DIR', get_stylesheet_directory() );
 define( 'SGNL_THEME_URI', get_stylesheet_directory_uri() );
 

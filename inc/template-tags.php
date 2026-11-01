@@ -97,10 +97,49 @@ function sgnl_header_media( $front ) {
 }
 
 /**
- * Wellen-Trenner unter dem Kopfbereich.
+ * Farbe des ersten Abschnitts der Seite (wenn er volle Breite und eine Hintergrundfarbe hat),
+ * damit die Welle nahtlos in diesen Abschnitt übergeht.
+ *
+ * @return string CSS-Farbe oder ''
+ */
+function sgnl_first_section_color() {
+	if ( ! is_singular() ) {
+		return '';
+	}
+	$post = get_queried_object();
+	if ( ! $post instanceof WP_Post || ! has_blocks( $post->post_content ) ) {
+		return '';
+	}
+	foreach ( parse_blocks( $post->post_content ) as $b ) {
+		if ( empty( $b['blockName'] ) ) {
+			continue;
+		}
+		$a = $b['attrs'] ?? array();
+		if ( ! in_array( $b['blockName'], array( 'core/group', 'core/cover', 'core/columns' ), true ) || 'full' !== ( $a['align'] ?? '' ) ) {
+			return '';
+		}
+		if ( ! empty( $a['backgroundColor'] ) ) {
+			return 'var(--wp--preset--color--' . sanitize_key( $a['backgroundColor'] ) . ')';
+		}
+		$bg = $a['style']['color']['background'] ?? '';
+		if ( $bg && preg_match( '/^(#[0-9a-f]{3,8}|rgba?\([\d\s.,%]+\)|var\(--wp--preset--color--[a-z0-9-]+\))$/i', $bg ) ) {
+			return $bg;
+		}
+		if ( 0 === strpos( (string) $bg, 'var:preset|color|' ) ) {
+			return 'var(--wp--preset--color--' . sanitize_key( substr( $bg, 17 ) ) . ')';
+		}
+		return '';
+	}
+	return '';
+}
+
+/**
+ * Wellen-Trenner unter dem Kopfbereich (in der Farbe des ersten Abschnitts).
  */
 function sgnl_wave() {
-	echo '<svg class="hero-wave" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0 60c120-26 240-38 360-30s240 40 360 40 240-36 360-44 240 10 360 26v38H0z"/></svg>';
+	$color = sgnl_first_section_color();
+	$style = $color ? ' style="fill:' . esc_attr( $color ) . '"' : '';
+	echo '<svg class="hero-wave" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true" focusable="false"' . $style . '><path d="M0 60c120-26 240-38 360-30s240 40 360 40 240-36 360-44 240 10 360 26v38H0z"/></svg>'; // phpcs:ignore WordPress.Security.EscapeOutput
 }
 
 /**
