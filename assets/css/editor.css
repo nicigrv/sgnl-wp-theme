@@ -1,0 +1,3 @@
+/* Editor: Inhalte so darstellen wie auf der Seite */
+.editor-styles-wrapper { font-family: var(--wp--preset--font-family--lexend); color: #2F3D55; }
+.editor-styles-wrapper .wp-block-post-title { font-family: var(--wp--preset--font-family--lexend-exa); color: #0B2A5B; }

@@ -1,0 +1,142 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"settings": {
+		"appearanceTools": true,
+		"useRootPaddingAwareAlignments": true,
+		"layout": {
+			"contentSize": "880px",
+			"wideSize": "1240px"
+		},
+		"color": {
+			"defaultPalette": false,
+			"defaultGradients": false,
+			"defaultDuotone": false,
+			"palette": [
+				{ "slug": "navy", "name": "Bahnblau", "color": "#0B2A5B" },
+				{ "slug": "navy-deep", "name": "Tiefblau", "color": "#071D40" },
+				{ "slug": "primary", "name": "Neptun-Blau", "color": "#1F44B8" },
+				{ "slug": "secondary", "name": "Türkis", "color": "#0B86B5" },
+				{ "slug": "sky", "name": "Himmelblau", "color": "#8FC9EC" },
+				{ "slug": "lane-red", "name": "Leinenrot", "color": "#D7263D" },
+				{ "slug": "water", "name": "Beckenwasser", "color": "#EEF5FA" },
+				{ "slug": "white", "name": "Weiß", "color": "#FFFFFF" },
+				{ "slug": "text", "name": "Text", "color": "#2F3D55" }
+			]
+		},
+		"typography": {
+			"defaultFontSizes": false,
+			"fluid": true,
+			"fontFamilies": [
+				{
+					"slug": "lexend",
+					"name": "Lexend",
+					"fontFamily": "\"Lexend\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+					"fontFace": [
+						{
+							"fontFamily": "Lexend",
+							"fontWeight": "100 900",
+							"fontStyle": "normal",
+							"fontDisplay": "swap",
+							"src": [ "file:./assets/fonts/lexend-latin-wght-normal.woff2" ],
+							"unicodeRange": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD"
+						},
+						{
+							"fontFamily": "Lexend",
+							"fontWeight": "100 900",
+							"fontStyle": "normal",
+							"fontDisplay": "swap",
+							"src": [ "file:./assets/fonts/lexend-latin-ext-wght-normal.woff2" ],
+							"unicodeRange": "U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF"
+						}
+					]
+				},
+				{
+					"slug": "lexend-exa",
+					"name": "Lexend Exa",
+					"fontFamily": "\"Lexend Exa\", \"Lexend\", system-ui, sans-serif",
+					"fontFace": [
+						{
+							"fontFamily": "Lexend Exa",
+							"fontWeight": "100 900",
+							"fontStyle": "normal",
+							"fontDisplay": "swap",
+							"src": [ "file:./assets/fonts/lexend-exa-latin-wght-normal.woff2" ],
+							"unicodeRange": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD"
+						},
+						{
+							"fontFamily": "Lexend Exa",
+							"fontWeight": "100 900",
+							"fontStyle": "normal",
+							"fontDisplay": "swap",
+							"src": [ "file:./assets/fonts/lexend-exa-latin-ext-wght-normal.woff2" ],
+							"unicodeRange": "U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF"
+						}
+					]
+				}
+			],
+			"fontSizes": [
+				{ "slug": "small", "name": "Klein", "size": "0.875rem", "fluid": false },
+				{ "slug": "medium", "name": "Normal", "size": "1.0625rem", "fluid": false },
+				{ "slug": "large", "name": "Groß", "size": "1.375rem", "fluid": { "min": "1.2rem", "max": "1.375rem" } },
+				{ "slug": "x-large", "name": "Sehr groß", "size": "2rem", "fluid": { "min": "1.6rem", "max": "2rem" } },
+				{ "slug": "xx-large", "name": "Riesig", "size": "3rem", "fluid": { "min": "2.1rem", "max": "3rem" } }
+			]
+		},
+		"spacing": {
+			"units": [ "px", "rem", "em", "%", "vw", "vh" ]
+		},
+		"blocks": {
+			"core/button": {
+				"border": { "radius": true }
+			}
+		}
+	},
+	"styles": {
+		"color": {
+			"background": "var(--wp--preset--color--white)",
+			"text": "var(--wp--preset--color--text)"
+		},
+		"typography": {
+			"fontFamily": "var(--wp--preset--font-family--lexend)",
+			"fontSize": "var(--wp--preset--font-size--medium)",
+			"fontWeight": "350",
+			"lineHeight": "1.7"
+		},
+		"spacing": {
+			"blockGap": "1.4rem",
+			"padding": {
+				"left": "clamp(1rem, 4vw, 2.5rem)",
+				"right": "clamp(1rem, 4vw, 2.5rem)"
+			}
+		},
+		"elements": {
+			"heading": {
+				"color": { "text": "var(--wp--preset--color--navy)" },
+				"typography": { "fontWeight": "600", "lineHeight": "1.2", "letterSpacing": "-0.015em" }
+			},
+			"h1": { "typography": { "fontSize": "clamp(2rem, 1.4rem + 2.4vw, 3rem)" } },
+			"h2": { "typography": { "fontSize": "clamp(1.6rem, 1.25rem + 1.4vw, 2.25rem)" } },
+			"h3": { "typography": { "fontSize": "clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem)" } },
+			"h4": { "typography": { "fontSize": "1.2rem" } },
+			"h5": { "typography": { "fontSize": "1.05rem" } },
+			"h6": { "typography": { "fontSize": "0.95rem" } },
+			"link": {
+				"color": { "text": "var(--wp--preset--color--primary)" },
+				":hover": { "color": { "text": "var(--wp--preset--color--secondary)" } }
+			},
+			"button": {
+				"color": {
+					"background": "var(--wp--preset--color--primary)",
+					"text": "var(--wp--preset--color--white)"
+				},
+				"border": { "radius": "999px" },
+				"typography": { "fontWeight": "600", "fontSize": "0.95rem" },
+				"spacing": { "padding": { "top": "0.75em", "bottom": "0.75em", "left": "1.5em", "right": "1.5em" } },
+				":hover": {
+					"color": { "background": "var(--wp--preset--color--navy)", "text": "var(--wp--preset--color--white)" }
+				}
+			}
+		}
+	}
+}
