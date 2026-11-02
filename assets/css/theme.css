@@ -494,12 +494,21 @@ a:hover { color: var(--secondary); }
 
 /* Team-Karten */
 /* höchstens 3 Karten pro Reihe, mit mehr Luft */
+/* Team-Karten: max. 3 pro Reihe; Standard mittig, wahlweise linksbündig (bündig mit der Überschrift) */
 .sgnl-team {
 	--team-gap: clamp(1.25rem, 2.6vw, 2rem);
+	--team-card: calc((100% - 2 * var(--team-gap)) / 3);
+	display: flex !important; flex-wrap: wrap; justify-content: center; align-items: stretch;
 	gap: var(--team-gap) !important;
-	grid-template-columns: repeat(auto-fill, minmax(max(16rem, calc((100% - 2 * var(--team-gap)) / 3)), 1fr)) !important;
 }
-@media (max-width: 600px) { .sgnl-team { grid-template-columns: 1fr !important; } }
+.sgnl-team > .wp-block-group { flex: 0 1 var(--team-card); min-width: min(100%, 15rem); max-width: 100%; }
+.sgnl-team.is-team-left {
+	justify-content: flex-start;
+	max-width: var(--wp--style--global--content-size, 880px) !important;
+	margin-left: auto !important; margin-right: auto !important;
+}
+@media (max-width: 860px) { .sgnl-team > .wp-block-group { flex-basis: calc((100% - var(--team-gap)) / 2); } }
+@media (max-width: 600px) { .sgnl-team > .wp-block-group { flex-basis: 100%; } }
 .sgnl-team > .wp-block-group {
 	background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
 	padding: 2rem 1.6rem 1.8rem; text-align: center; margin: 0 !important;

@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'SGNL_THEME_VERSION', '2.0.3' );
+define( 'SGNL_THEME_VERSION', '2.1.0' );
 define( 'SGNL_THEME_DIR', get_stylesheet_directory() );
 define( 'SGNL_THEME_URI', get_stylesheet_directory_uri() );
 
@@ -108,6 +108,11 @@ function sgnl_asset_ver( $rel ) {
 	$f = SGNL_THEME_DIR . '/' . $rel;
 	return file_exists( $f ) ? (string) filemtime( $f ) : SGNL_THEME_VERSION;
 }
+
+/* Editor: Ausrichtung der Team-Karten */
+add_action( 'enqueue_block_editor_assets', function () {
+	wp_enqueue_script( 'sgnl-theme-editor', SGNL_THEME_URI . '/assets/js/editor.js', array( 'wp-hooks', 'wp-compose', 'wp-element', 'wp-block-editor', 'wp-components' ), sgnl_asset_ver( 'assets/js/editor.js' ), true );
+} );
 
 add_action( 'wp_enqueue_scripts', function () {
 	wp_enqueue_style( 'sgnl-theme', SGNL_THEME_URI . '/assets/css/theme.css', array(), sgnl_asset_ver( 'assets/css/theme.css' ) );
