@@ -146,6 +146,10 @@ function sgnl_wave() {
  * Datum + Kategorie eines Beitrags.
  */
 function sgnl_post_meta() {
+	// Nur bei Beiträgen: Ankündigungen und andere Inhaltstypen zeigen ihr eigenes Datum.
+	if ( 'post' !== get_post_type() ) {
+		return;
+	}
 	$cats = get_the_category();
 	echo '<div class="post-meta">';
 	if ( $cats ) {
